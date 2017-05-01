@@ -37,7 +37,9 @@ Iterator<Collection<Class<?>>> iterator = dependencyMetadata.iterator();
 Iterator will return the list of classes that are the nth level parent in the graph. First call to next will return root nodes and next call will return Level 1 nodes and henceforth.
 
 
-![Alt text](https://g.gravizo.com/svg?
+
+![Alt text](http://g.gravizo.com/source/dependencygraph?http%3A%2F%2Fwww.gravizo.com#
+dependencygraph
   digraph G{
     aize ="4,4";
     A [shape=circle];
@@ -52,7 +54,8 @@ Iterator will return the list of classes that are the nth level parent in the gr
     B -> F;
     C -> F;
   }
-)
+dependencygraph)
+
 
 ### Who do I talk to? ###
 
