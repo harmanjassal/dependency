@@ -42,9 +42,6 @@ Iterator will return the list of classes that are the nth level parent in the gr
 dependencygraph
   digraph G{
     aize ="4,4";
-    A [shape=circle];
-    B [shape=circle];
-    C [shape=circle];
     A -> D [weight=8];
     A -> E;
     D -> F;
