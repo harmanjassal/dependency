@@ -11,18 +11,52 @@ This module will make it easy to define dependencies between multiple entities u
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Put a dependency on the module
 
-### Contribution guidelines ###
+```
+#!xml
 
-* Writing tests
-* Code review
-* Other guidelines
+<group>com.harman.core</group>
+<artifactId>dependency-core</artifactId>
+```
+* In order for this module to work you will need to configure two type of entities
+** Root
+*** Root entities are configured using annotation **@DependencyAware**
+** Child
+*** Child entities are configured using annotation **@DependencyAware** and **@DependsOn**. DependsOn annotation defines the dependencies of the entity on other root or child nodes.
+Once configured you will need to build the metadata by passing the base package to scan
+
+```
+#!java
+
+DependencyMetadata dependencyMetadata = MetadataBuilder.buildGraph(new DependencyContext(Lists.newArrayList("com.harman")));
+Iterator<Collection<Class<?>>> iterator = dependencyMetadata.iterator();
+       
+```
+
+Iterator will return the list of classes that are the nth level parent in the graph. First call to next will return root nodes and next call will return Level 1 nodes and henceforth.
+
+![Alt text](https://g.gravizo.com/source/custom_mark10?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
+<details> 
+<summary></summary>
+custom_mark10
+  digraph G {
+    aize ="4,4";
+    A [shape=circle];
+    B [shape=circle];
+    C [shape=circle];
+    A -> D [weight=8];
+    A -> E;
+    D -> F;
+    F -> G;
+    D -> G;
+    B -> G;
+    B -> F;
+    C -> F;
+    parse -> execute;
+  }
+custom_mark10
+</details>
 
 ### Who do I talk to? ###
 
