@@ -41,15 +41,14 @@ Iterator will return the list of classes that are the nth level parent in the gr
 ![Alt text](http://g.gravizo.com/source/dependencygraph?https%3A%2F%2Fbitbucket.org%2FJassalharman%2Fdependency%2Fraw%2Ff9cb7deef48fe60d48089ce196ed25f9a2aa2475%2FREADME.md#
 dependencygraph
   digraph G{
-    aize ="4,4";
-    A -> D [weight=8];
-    A -> E;
-    D -> F;
-    F -> G;
-    D -> G;
-    B -> G;
-    B -> F;
-    C -> F;
+   main -> parse -> execute
+   main -> init
+   main -> cleanup
+   execute -> make_string
+   execute -> printf
+   init -> make_string
+   main -> printf
+   execute -> compare
   }
 dependencygraph)
 
