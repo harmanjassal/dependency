@@ -33,7 +33,7 @@
 
     <scm>
         <url>https://bitbucket.org/Jassalharman/dependency</url>
-    </scm>
+    </scm>pom.xml:18
     <distributionManagement>
         <repository>
             <id>sonatype-nexus-staging</id>
